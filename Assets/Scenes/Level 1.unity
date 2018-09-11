@@ -364,38 +364,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20226027416618906, guid: d8c3e0a091f0d4270a042f41d0c307bc,
-        type: 2}
-      propertyPath: far clip plane
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 20226027416618906, guid: d8c3e0a091f0d4270a042f41d0c307bc,
-        type: 2}
-      propertyPath: near clip plane
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 20226027416618906, guid: d8c3e0a091f0d4270a042f41d0c307bc,
-        type: 2}
-      propertyPath: m_OcclusionCulling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20226027416618906, guid: d8c3e0a091f0d4270a042f41d0c307bc,
-        type: 2}
-      propertyPath: m_AllowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818488271316104, guid: d8c3e0a091f0d4270a042f41d0c307bc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 9.626
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818488271316104, guid: d8c3e0a091f0d4270a042f41d0c307bc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818488271316104, guid: d8c3e0a091f0d4270a042f41d0c307bc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c3e0a091f0d4270a042f41d0c307bc, type: 2}
   m_IsPrefabAsset: 0

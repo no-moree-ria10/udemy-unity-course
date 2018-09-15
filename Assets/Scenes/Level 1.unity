@@ -568,6 +568,23 @@ Prefab:
       propertyPath: m_Name
       value: Rochet Ship 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4849450355341154, guid: e674e618294297e4083657020f700884, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849450355341154, guid: e674e618294297e4083657020f700884, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849450355341154, guid: e674e618294297e4083657020f700884, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239917728564944, guid: e674e618294297e4083657020f700884,
+        type: 2}
+      propertyPath: rcsThrust
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e674e618294297e4083657020f700884, type: 2}
   m_IsPrefabAsset: 0

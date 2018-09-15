@@ -6,6 +6,15 @@ public class Rocket : MonoBehaviour {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 1;
 
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip death;
+    [SerializeField] AudioClip success;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] ParticleSystem successParticles;
+
+
     Rigidbody rigidBody;
     AudioSource audioSource;
 
@@ -22,7 +31,7 @@ public class Rocket : MonoBehaviour {
 	void Update () {
         if (state == State.Alive)
         {
-            Thrust();
+            RespondToThrustInput();
             Rotate();
         }
     }
@@ -37,17 +46,32 @@ public class Rocket : MonoBehaviour {
                 print("OK");
                 break;
             case "Finish":
-                print("Hit Finish!!");
-                state = State.Transcending;
-                Invoke("LoadNextScene", 1f);
+                StartSuccessSequence();
                 break;
             default:
-                print("dead...");
-                state = State.Dying;
-                audioSource.Stop();
-                Invoke("LoadFirstScene", 1f);
+                StartDeathSequence();
                 break;
         }
+    }
+
+    private void StartDeathSequence()
+    {
+        print("dead...");
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.PlayOneShot(death);
+        deathParticles.Play();
+        Invoke("LoadFirstScene", 1f);
+    }
+
+    private void StartSuccessSequence()
+    {
+        print("Hit Finish!!");
+        state = State.Transcending;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        successParticles.Play();
+        Invoke("LoadNextScene", 1f);
     }
 
     private void LoadNextScene()
@@ -61,20 +85,27 @@ public class Rocket : MonoBehaviour {
     }
 
 
-    private void Thrust()
+    private void RespondToThrustInput()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidBody.AddRelativeForce(Vector3.up * mainThrust);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            ApplyThrust();
         }
         else
         {
             audioSource.Stop();
+            mainEngineParticles.Stop();
         }
+    }
+
+    private void ApplyThrust()
+    {
+        rigidBody.AddRelativeForce(Vector3.up * mainThrust);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        mainEngineParticles.Play();
     }
 
     private void Rotate()
@@ -94,6 +125,4 @@ public class Rocket : MonoBehaviour {
 
         rigidBody.freezeRotation = false; // take manual control of rotation
     }
-
-
-    }
+}
